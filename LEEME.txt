@@ -1,0 +1,17 @@
+KIT TP 2 - DISTRIBUIDORA DEL LITORAL S.R.L.
+============================================
+
+01_legado_oracle.sql       Script ORIGINAL del sistema viejo (Oracle). NO ejecutar en MariaDB tal cual.
+                           Es la referencia de cómo DEBÍA ser la base.
+02_migracion_proveedor.sql Migración hecha por el proveedor anterior con IA. Ejecutar PRIMERO.
+03_dump_produccion.sql     Datos de producción el día del incidente. Ejecutar SEGUNDO.
+04_backup_export_oracle.sql Respaldo parcial del sistema viejo (sintaxis Oracle). NO ejecutar tal cual:
+                           hay que adaptarlo en la Fase 3.
+
+Puesta en marcha:
+1. Iniciar el módulo MySQL en el panel de control de XAMPP.
+2. En VS Code, extensión Database Client: conectarse al servidor local.
+3. Ejecutar 02 y luego 03, completos, en ese orden.
+4. Verificar: SELECT COUNT(*) FROM litoral_pedidos.detalle_pedido;  -> debe dar 75
+
+Para volver a empezar desde cero: ejecutar de nuevo 02 y 03.
